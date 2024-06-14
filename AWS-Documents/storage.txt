@@ -1,0 +1,42 @@
+                                     Volumes
+
+EBS VOLUMES
+
+permanent storage
+if u stop ec2, no data loss
+ebs volume max size 16  tb
+(for free tier 30 gb)
+
+Instance storge volume
+--> not persistence storage
+--> not perminent
+--> Temporary volumes
+--> if we terminate ec2 we will loose data
+-> instance storage volumes are free
+
+
+                                             EBS VOLUMES TYPES
+
+General purpose volumes (gp2,gp3) --ssd : 1 GB - 16TB
+Provisioned IOPS volumes (io1,io2) --ssd high performance(4gb -16tb) costly
+Throughput (st1) - HDD ==> Frequently accessed data with cheaper price (500gb -16tb) 
+cold (sc1) -HDD => Not frequently accessed data with  cheap price(500gb -16tb)
+Magnetic (standard) HDD => pervious generation (1gb -1tb) -old
+
+---> go to volumes in ebs
+---> create volume 
+---> attach volume to ec2 instance
+
+
+df -h (disk free space)
+lsblk (list all the block devices in the linux machine)
+file -s /dev/xvdf 
+/dev/xvdf : data (if you see data here, that means you need to setup file system for this block device)
+mkfs -t xfs /dev/xvdf (xfs is High Performance Scalable File System)
+file -s /dev/xvdf 
+pwd
+mkdir -p /apps/bata
+mount /dev/xvdf  /apps/bata
+
+
+

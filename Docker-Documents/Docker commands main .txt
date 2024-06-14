@@ -1,0 +1,75 @@
+Tostart docker service 
+$service docker start
+docker run options 
+
+$docker run --name <containerName> -it|d  <Registry> <ImageName> <firstcmd>
+$docker run --name <containerName> -e VAR=VALUE  -it|-d  <Registry> <ImageName> <firstcmd> 
+ex: docker run -it centos 
+    docker run -it ubuntu 
+    docker run -it ubuntu /bin/sh 
+    docker run -it 
+i- intercative
+t terminal  
+ex: docker run --name madhu -it centos
+    docker run --name madhu -d centos /bin/sh -c "while true; do echo hello adam; sleep 8; done"
+    docker run -it -e MYNAME=MADHU centos /bin/bash
+    docker exec -it <Containername>/<Containername>
+    docker run --name madhu2 -it -w /tmp centos  /bin/bash
+    
+2)what are the containers running on your machine
+$docker ps 
+3)list what are the containers are there on your machine 
+$docker ps -a 
+4)To list the container id avilable on your machine 
+$docker ps -aq
+5)To list file size of each container 
+$docker ps -s
+6)To list latest created container 
+$docker ps -l
+7)To stop the container 
+$docker stop <Containername>/<Containername>
+8)To start container 
+$docker start <containerid>/<Containername>
+9)To find all details about container
+$ docker inspect <containerid>/<Containername>
+10)to navigate inside the container
+Docker exec -it <containerid>/<Containername>
+11)to see logs of a container
+docker logs -f <containerid>/<Containername>
+12 To show disk usage 
+docker system df 
+13)To display live streamdocker start of containers resource usage statistics 
+Docker stats --no-stream
+14To delete a single container running
+$docker rm <containerid>/<Containername> -f
+15)To delete a stop container 
+$docker rm <containerid>/<Containername>
+16) to delete all running containers at a time 
+$docker rm $(ps -a -q) -f 
+17)To go back into the container 
+$docker attach <containerid>/<Containername>
+18) To execute commands without going into container 
+$docker exec <Containername>/<Containerid > <cmd>
+19) To copy a file from hostmachine to container or wise versa 
+$docker cp  <hostfile> <Containername>/<Containerid>:<path>
+docker cp <Containername>/<Containerid>:<path> <hostfile>
+20) To stop the container more quickly 
+    docker kill <containerid/containername>
+21)To create a new image from container 
+   docker commit <containername> <newimagename>:<tag>
+22)To save image in a tar file 
+docker save -o <newimagename.tar> <oldimagename>
+23)To restore the image from tar file
+docker load -i tarfilename
+24) TO pause the container
+docker pause containername
+25)To unpause the container
+docker unpause container
+26)To restart the container 
+docker restart container name
+27) to search the images 
+docker search imagename 
+28)to docker pull  
+docker pull imagename
+
+

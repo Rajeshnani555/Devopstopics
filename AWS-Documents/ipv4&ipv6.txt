@@ -1,0 +1,48 @@
+     Difference between ipv4 and ipv6
+Ip address: As we know ip address is a 
+unique number which is provide to each and 
+every device
+
+Ex: 192:123:76:64
+Note: Ip address versions are 2 types ipv4 and ipv6
+
+ipv4
+------
+1) the length of ipv4 is 32 bit
+2) in ipv4 around 4 billion unique ip address are 
+generated 2 power 32
+3)the range of ipv4 address is o to 255
+Ex: 192.255.108.253
+4) It consists 4 octets  each octet has 8 bits
+5) ipv4 is a numeric address seperated by .(dot)
+6) Ipv4 have 5 classes
+
+ipv6
+----
+1) The length of ipv6 is 64 bit
+2) In ipv6 around 340 trillion unique ip address are 
+generated 2 power 128
+3)The range of ipv6 address is 0 to FFFF(65535)
+Ex: 2001:db8:3333:4444:5555:6666:7777:8888
+4) It consists 8 octets each octet has 16 bits
+5)ipv6 is alphanumerica number seperated by colon (:)
+6) It doesn't have any classes
+IP Address Classes:
+Class A
+Class B
+Class c
+Class D -Multicasting & News Groups
+Class E -Research & development
+
+Class    Range
+class A  0-126
+Class B  128-191
+Class c  192-223
+Class D  224-239
+class E  240-255
+
+ 
+
+
+
+

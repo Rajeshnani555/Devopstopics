@@ -1,0 +1,113 @@
+-->EC2 stands elastic compute cloud
+-->EC2 service providing virtual machines for aws users
+-->using ec2 we can create any no .of virutal machine according to our requirement
+Note: Aws providing 1 years free subscription with 750 hours / monthly 
+--> EC2 provide scalable computing cloud in aws
+Note : if we use ec2 then we no need to purchase physical servers for our infrastructure
+Note : one virtual machine is called as one vm or one instance
+--> ec2 provide AMI (Amazon machine Images) - per-configured machines
+--> we can cusomize instance types (cpu,memory,storage,network, capacity)
+--> ec2 providing secured instance with key-pair
+Note: Ec2 is regional based service 
+
+--> EC2 providing security groups to manage incoming & outgoing traffic for our instance 
+--> Security Group (SG) contains inbound & outbound rules
+inbound rules ->  manageing for incoming traffic 
+outbound rules ->  manageing for outgoing traffic 
+-------------------------------------------------------------------
+                instance launch types 
+-------------------------------------------------------------------
+1) on Demand Instances
+2) reserved Instances
+3) Spot Instances
+4) Dedicated host 
+
+1) on Demand Instances
+--> when ever you want you will use it such kind of instances are called on demand instances
+--> fixed price (hourly )
+--> pay for what you have used
+--> no commitment
+--> no Prior payment
+--> no predictable usage 
+2) Reserved Instances
+--> Long term commitment
+--> Prior payment(Full,Partial)
+-->1 0r 3 years
+-->75% discount on hourly price
+-->perdictable usage 
+Spot Instances
+--> Bidding (Auctioning)
+--> Huge Capacity for cheaper price
+Dedicated Instances
+--> if any customers need diedcated physical machine
+--> Licensed based softwares
+Note: Aws cloud minimum billing period is 1 hour
+9 am - 10 am ===> used for 5 mins
+11am - 12pm ===> userd for 5 mins
+--------------------------------------------------------------------
+                  Instance states
+--------------------------------------------------------------------
+Launch state --> pending stage --> Running state --> stop state --> Reboot state --> Terminate state
+
+---------------------------------------------------------------------
+                  EC2 INSTANCE Family types
+---------------------------------------------------------------------
+1) Amazon ec2 provides us with a wide selection of instance types that are optimized for different use cases.
+2) Instance types comprises of varying combination of cpu, memory, storage and networking capacity and this gives us the flexibility to choose the most appropriate mix of resources for the applications.
+3)Each instance type include one or more instance size that allows us to scale the resources to the requirments of the target workloads.
+4) The instance types can be divided into following 
+A) General purpose
+B) compute optimized
+c) Memory optimized
+D) storage optimized 
+E) Accelerated computing
+F) HPC optimized
+
+https://aws.amazon.com/ec2/instance-types/?trk=32f4fbd0-ffda-4695-a60c-8857fab7d0dd&sc_channel=ps&ef_id=CjwKCAiA0syqBhBxEiwAeNx9N7mrCguJ8I-nyHYn5xiPHUm6e8OPvHmhTWS-KrxvuV6Wj5QU_GAAGBoCjSoQAvD_BwE:G:s&s_kwcid=AL!4422!3!5363
+92685920!e!!g!!ec2%20instance%20types!11539707735!118057054048
+
+A) General purpose
+
+--> General purpose instances provides a balance of compute, memory and networking resources and can be used for a variety of diverse workloads
+--> These instances are indeal for applications thast use these resources in equal proportions such as web servers and code repositories.
+
+B) COMPUTE OPTIMIZED 
+-->compute optimized instances are ideal for compute bound applications that benefit from high performance processors
+--> instances belonging to this category are well suited for batch processing workloads, mediatrancscoding,high perfomance web server, high performance web server, high performance computing, scientific modeling
+--> dedicated gaming servers and machine learning inference and other compute intensive application
+
+MEMORY OPTIMIZED
+--> Memory optimized instances are designed to deliver fast 
+performance for workloads that process large data sets in memory 
+--> Memory optimized instances are ideal for memory intensive workloads such as open-source databases 
+in-memory caches and real-time big data analytics
+
+Storage optimized
+-->Storage optimized instances are designed for workloads that require high seqential read and write access to very large data sets on local storage.
+--> They are optimized to deliver tens of thousands of low-latency, random I/o operations per second (IOPS) to applications.
+--> These are ideal for I/O intensive applications and are targeted to customers using transactionl databases, Amazon opensearch service and real-time analytics such as Apache spark
+
+Accelerated computing
+--> Accelerated computing instances use hardware accelerators or co-processors to perform fuctions, such as floating point number calculations, graphics perocessing or data pattern matching, more efficiency that is possible in sfotware runing on cpus.
+--> These are ideal for machine learning, high performance computing, computational fluid dynamics,computational finance, seismic analysis,speech recognition,autonomous vehicles and drug discovery.
+
+
+HPC OPTIMIZED
+
+--> High Performance computing (HPC) instances are purpose built to offer the best price.
+Performance for running hpc workloads at scale on aws
+
+--> HPC instances are ideal for applications thsat benefit from high-performance such as large, complex simulations and deep learning workloads.
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+   

@@ -1,0 +1,26 @@
+count
+create aws instance with count.index
+resource "aws_instance" "my-instance" {
+  count         = 3
+  ami           = "ami-0c7217cdde317cfec"
+  instance_type = "t2.micro"
+  key_name      = "ter"
+   tags = {
+    Name  = "Terraform-${count.index + 1}"
+  }
+}
+-----------------------------------------------------
+for each
+resource "aws_instance" "my-instance" {
+for_each = toset(["one", "two", "three"])
+ami  = "ami-0c7217cdde317cfec"
+instance_type          = "t2.micro"
+key_name               = "jenk"
+tags = {
+name = "instance-${each.key}"
+Terraform   = "true"
+Environment = "dev"
+  }
+}
+-----------------------------------------------
+list 

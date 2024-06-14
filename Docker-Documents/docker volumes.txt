@@ -1,0 +1,10 @@
+docker volume ls: (To list number of volumes in docker )
+docker run -it --name myc1 -v /data nginx /bin/bash: (to mount volume while creating ) anonymous volume   
+docker run -it --name myc1 -v volume name :/data2 imagename bash:(to mount existing volume to container )
+docker volume create volume1(to create volume )
+docker volume rm volume1 (to remove volume)
+docker volume prune (remove all unused local volumes)
+docker volume inspect (Display detailed information on one or more volumes)
+docker volume create --opt o=size=100m --opt device=/dat4 --opt type=btrfs volume name (to create volume with spefic size)
+docker system df (command is used to  display information related to file systems about total space and  available space)
+docker system df -v (this command is used to display more information related to file systems about total space and available space)    

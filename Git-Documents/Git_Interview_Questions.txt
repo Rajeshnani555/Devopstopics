@@ -1,0 +1,313 @@
+Git Interview Questions:
+------------------------
+
+1) what happens when you run git fetch ?
+
+   Git fetch downloads new changes form a remote repository ,but does not apply them to your local branch.
+	It updates your remote tracking branches so that they match the state of the corresponding branches on the remote repository.
+
+2) what is the difference between git merge and git rebase ?
+
+  Git merge combines changes from one branch to another branch creating a new change commit that has two parent commits.
+
+git rebase on the other hand rewrites the history of a branch by moving the branch to the tip of another branch and applying the changes in a linear fashion.
+
+This creates a cleaner,easier to understand commit history ,but it can lead to conflicts if multiple people are working on the same branch
+
+3) You have made commit that contains sensitive information,such as a password,and you want to remove it from the git repository.What is the best way to do this ?
+
+	Use Git filter branch command
+First, use the git log command to identify the commit that contains the sensitive information.
+
+Then, use git filter branch --force --index-filter 'git rm --cached --ignore-unmatch path/ti/file' --prune-empty --tag-name-filter cat -- --all command to remove the sensitive information from the commit and all subsequent commits.
+
+Finally,use the git push --force command to update the remote repository.
+
+4)How do you resolve conflicts in Git ?  
+
+ To resolve conflicts in Git, You first need to identify which files have conflicts by running git status.
+
+Then,open the conflicted files in a text editor and look for the sections marked with <<<<<<<<,========,and >>>>>>>.
+
+Edit the files to remove the conflicts, stage the changes with git add and commit the changes with git commit
+
+
+5) what is difference between git push and git push --force ?
+
+git push sends your local changes to a remote reposistory and updates the remote branches to match your local branches ,git push --force,however,overwrites the remote branches with your local branches even if they have diverged.
+
+This can cause you to lose changes .If you are not careful,so it should be used with caution
+
+6)what is difference between git reset and git revert ?
+
+git reset removes commits from the current branch, moving the branch pointer back to an earlier commit.
+
+This can be useful if you want to undo local changes that have not been pushed to a remote repository.git revert on the other hand, creates a new commit that undoes the changes made by a previous commi.
+
+This is useful if you want to undo changes that have already been pushed to a remote repository and shared with others
+
+7)You have made a mistake in a commit message and want to chage it .What is the best way to do this ?
+
+The best way to change a commit message in git is to use the git commit --amend command
+First use the git log command to identify the commit with the incorrect message.Then use the git commit --amend -m "Correcte message" command to change commit message .
+
+Finally use git push --force command to update the remote repository.
+
+8) What is difference between git and github ?
+
+Git is distributed version control system that allows developers to track changes in source code over time
+
+github on the other hand, is web-based platform that provides hosting for Git Repositories as well as additional features such as issue tracking ,code review and collaboration tools
+
+9)You have accidentally deleted a file that was commited to your git reposistory .what is the best way to restore git the file?
+
+The best way to restore a deleted file in Git is to use the git checkout command.
+
+First, identify the commit in which the file was last present using the git log command
+
+Then, use the git checkout <commit> -- <file> command to restore the file from the specified commit 
+
+If the file was deleted in the most recent commit ,you can use the git reset HEAD~1 command to reset the branch to the previous commit use git checkout to restore the file and then use the git add and git commit commands to commit the restored file
+
+10)What is git bisect ?
+
+Git bisect is tool that helps you find the commit that introduced a bug.It works by doing a binary search of the commit history ,asking you to test a commit in the middle of the range each time.
+
+Based on your feedback ,it will narrow down the range of possible commits until it finds the one that introduced the bug.
+
+
+11)What is git stash ?
+
+A git stash is a way to temporarily save changes that you are not ready to commit ,so that you can work on a different branch or pull in changes from another reposistory .
+
+Stashing your changes creates a new "stash" object that stores your changes and you can apply the stash later using git stash apply or git stash pop
+
+You have made a commit to a branch ,but you want to move it to a different branch .What is the best way to do this ?
+
+The besy way to move commit to different branch in git is to use the git cherry-pick command
+
+First,  identify the commit hash using the git log command.Then,switch to the target branch using git checkout command
+
+Finally ,use git cherry-pick <commit> command to apply the commit to target branch
+
+This will create  a new commiit with the changes from the originalcommit applied to target branch
+
+12) You have made some changes to a file ,but you want to see what the file lookde like before the chnages what is the best way to view the previous version of the file ?
+
+The best way is git show
+
+First ,use the git log command to indentify the commit in which the file was last modified
+
+Then use the git show <commit>:path/to/file command to view the contents of the file at the specified commit.
+
+If the file has been modified multiple times, you can use the git log --oneline path/to/file command to identify the commit hash for previous versionof the fiel and then use the git show <commit> to view the contents of the file at the specified commit .
+
+13) What is git filter-branch ?
+
+Git filter-branch is a command that allows you to rewrite the history of git repository.
+It can be used to remove sensitive data ( Such as passwords or API keys) from the commit history ,or to split a large repository into smaller repositories.
+
+14)You want to merge a branch into another branch in git,but want to preserve the commit history of both branches.what is the best way to do this ?
+
+The best way to merge into another branch in Git and preserve the commit history of both branches is to use the git merge --no-ff command
+
+First,use the git checkout command to switch to the branch that you want to merge into
+
+Then,use the git merge --no-ff branch-to-merge command to merge the branch with the --no-ff option to preserve the commit history
+
+Finally,use the git push command to update the remote repository
+
+15)what is git blame ?
+
+git blame is a command that allows you to see who last modified each line of a file, and when they made the change
+
+This is useful for identfying who introduced a particular bug or issue in the code.
+
+The blame command works by annotating each line of the file with the name and email of the last person to modify that line, as well as the commit ID and timestamp of the change.
+
+16)What is Git merge --no-commit ?
+
+Git merge --no-commit is a command that allows you to perform a merge between two branches,but prevent git from automatically creating a merge commit .
+
+This is useful when you want to review the changes that will be merged before commiting them to the repository
+
+The merge --no-commit command merges the changes into your local working directory,but does not commit them, allowing you to review and edit the chages before commiting
+
+17) What is Git Rebase --interactive ?
+
+Git rebase --interactive is a command that allows you to interactively rewrite the history of  a git branch
+
+It allows you to edit,delete, or squash commits, reorder commits and split commits into smaller commits
+
+This is useful for cleaning up a messy commit history, or for preparing a branch for merging into another branch
+
+18) You have accidentally deleted a branch in GIt and want to restore it .what is the best way to do this ?
+
+The best way to restore a deleted branch in git is to use the git reflog command. First use the git reflog command to identify the SHA-1 hash of the commit that the deleted branch pointed to.
+
+Then,use the git branch new-branch-name commit-SHA-1 hash command to create a new branch name commit SHA-1 hash command to create a new branch with the sane name as deleted branch and pointing to same commit.
+
+19)What is Git worktree ?
+
+git worktree is a feature that allows you to work on multiple git branches at the same time,without having to switch between branches in the same working directory
+
+Each worktree has its own seperste directory,but shares the same git repository
+
+This is useful for working on  multiple branches simultaneously or for testing changes on a seperste branch before merging them into main branch
+
+20)What is git remote set-url ?
+
+Git remote set-url is a command that allows you to change the URL of a remote Git reposistory
+
+This is useful if the remote repository has moved to a new location or if you want to switch to a different remote repository
+
+The set-url command can be used to change the url of an existing remote or to add a new remote with a different URl
+
+
+21) What is Git Rebase --onto ?
+
+Git rebase --onto is a command that allows you to rebase a specific range of commits onto a new branch.
+
+The --onto option specifies the new base branch to use for the rebase
+
+This is useful when you need to rebase a range of commits onto a different branch than the original base branch, or to split a branch inot multiple branches
+
+
+22) You want to undo the last commit in git.What is the best way to do this?
+
+The best way to undo the last commit in git is to use git reset command with the --soft option
+
+First, use the git log command to identify the coomit that you want to undo
+
+Then, use the git reset --soft HEAD~1 command to undo the commit and keep the changes staged
+
+Finally, use the git reset HEAD path/to/file command to unstage any changes that you don't want to keep
+
+23) you have been working on a project with several other developers, and you have encountered a bug that you suspect was introduced by a recent commit.What is the best way to find the commit that introduced the bug ?
+
+The best way to find the commit that introduced a bug is to use the git biset command.
+
+First,identify a commit that is known to be free of the bug, and a commit that is known to contain the bug
+
+Next, use the git bisect start command to start the binary search process, and then use the git bisect good command to mark the known good commit ,and th git bisect bad command to mark the known bad commit
+
+After each step Git will check out a commit in the middle of the range and you can test wheter the bug i spresent or not
+
+Continue with the git bisect good or git bisect bad command until git has identified the commit that introduced the bug
+
+
+24) what is git submodule foreach?
+
+
+Git submodule foreach is a coomand that allows you to execute a git command in each submodule of a git reposistory.
+
+This is useful when you want to perform the same command on each submodule,such as updating each submodule to the latest version of the code.
+
+25) what is git ref?
+
+Git ref is reference to a specific commit or branch in agit reposistory
+
+A ref can be a branch,a tag a remote branch, or a commit ID
+
+Refs can be used to check out a specific version of the code,or to create new branches or tags based on existing commits.
+
+26) You have been working on a feature branch and you want to merge it into the master branch. However,you realize that there are some changes on the master branch that you do not want to include in the merge.What is the best way to do this?
+
+the best way to do this is to first update the master branch to include the latest changes from the upstream repository using the git pull command
+
+Next,switch to a feature branch and release it on top of the updated master branch using the git rebase master command
+
+This will aplly the changes on feature branch on top of the latest changes on master branch
+
+Finally, switch back to the master branch and merge the feature branch using the git merge --no-ff feature command
+
+The --no-ff option will ensure that a merge commit is created even if it is a fast forward merge
+
+27) What is Git subrepo ?
+
+
+Git subrepo is a third-party tool that extends git with ability to manage multiple repositories as subdirectories within  a single repository
+
+Subrepo allows you to treat each subdirectory as a seperate git reposistory,with its own commit history and branch structure
+
+This is useful when you have a large project that is split across multiple repositories or when you want to manage multiple related projects in a single repository
+
+
+28) What is Git Stash vs Git stash pop ?
+
+Git stash apply and git stash pop are two commands that allow you to apply the changes from a stash in your working directory.
+
+The main difference between the two is that git stash apply leaves the stash in the stash list,while git stash pop removes the stash from the stash list after applying the changes
+
+This is useful when you want to apply the changes from a stash to multiple branches or versions of the code
+
+
+
+29) You have accidentally commited sensitive information such as passwords or API Keys, to a Git Repository.what is the best way to remove this information from the repository ?
+
+The best way to remove sensitive information from git repository is to use the git filter-branch command
+
+This command can be used ti rewrite the git history by removing or modifying specific file or commits
+
+To remove sensitive information ,you can create a new branch that starts at the commit before the sensitive information was commited, and then use the git filter-branch command to remove the files containing the sensitive information
+
+Once the command has completed force push the update branch to the remote repository to update the history
+
+ 30) What is rebase -i?
+
+Git rebase -i is a command that allows you to interactively edit the commit history of a branch by specifying a list of commits to modify or reorder
+
+The -i option opens a text eitor with a list of commits,where you can choose to edit,squash,reword,reorder or drop each commit.
+
+This is useful when you want to clean up a branch history,combining multiple commits into a single one or split a commit into multiple ones
+
+31)What is git diff-index?
+
+Git diff-index is a command that allows you to compare the contents of a git reposistroy with the contents of the working directory ,and to display the differences b/w them
+
+the diff-index command compares the SHA-1 hashes of the files in the reposistroy with SHA-1 hashes of the files in th eworking directory, and displays the difference in a format similar to the git diff command
+
+This is useful when you want to compare the repository contents with the working directory. or to check if any changes have been made to the reposistory outside of git
+
+32) You have made changes to a file and want to save them temporarily without  commiting them.What is the best way to do this ?
+
+The best way to save changes to afile temporarily without commiting them in git is to use the git stash command
+
+First use git status command to identify the file that has been modified
+
+Then use the git stash command to save the changes in the working directory
+
+You can later use git stash apply command to apply the changes back to the working directory
+
+33) You have made changes to a file and want to see the differences between the working copy and a specific commit .what is the best way to do thsi ?
+
+
+
+The best way to see the differences between the working copy and a specific commit in  git is to use the git diff command with the commit hash
+
+First, use the git status command to ensure that the changes are unstaged
+
+Then, use the git diff commit-hash path/to/file command to compare the changes to the specified commit 
+
+This will show the differences b/w the working copy and the specified commit
+
+
+34) You have made changes to a file and want to see who last modified the file.what is the best way to do this ?
+
+The best way to see who last modified a file in Git is to use the git log command with the --follow option
+
+First, use the git status command to ensure that the chnages are commited
+
+Then, use the git log --follow -- path/to/file command to show the history of changes for the file
+
+This will show the commits that modified the file, along with their  commit messages and author information
+
+35) You have made several commits to a feature branch,but  now you need to split those commits into smaller,more focused commits. what is the best way to do this ?
+
+The best way to split commits in git to use the interactive rebase feature First, switch to feature branch and use the git rebase -i HWAD~N command ,where N is no of commits you want to modify
+
+This will open an editor with list of the commits that will be rebased.change the word "pick" to "edit" for the commits you want to split,save and exit the editor.Git will then apply the first commit in the list, and stop the rebase
+
+You can then use the git reset HEAD~1 command to unstage th echanges use git add -p to add only the relevant changes and commit the changes with an appropriate commit message. Repeat this process for each commit you want to split and then continue the rebase with git rebase --continue command
+
+36)
